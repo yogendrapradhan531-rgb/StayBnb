@@ -23,7 +23,7 @@ const PARAM_KEYS = [
 
 const DEFAULT_META = {
   propertyTypes: ['apartment', 'house', 'villa', 'cabin', 'cottage', 'loft', 'other'],
-  amenities: ['wifi', 'kitchen', 'washer', 'air conditioning', 'heating', 'pool', 'free parking', 'tv', 'workspace', 'hot tub', 'pet friendly', 'beach access'],
+  amenities: ['wifi', 'kitchen', 'washer', 'air conditioning', 'heating', 'pool', 'free parking', 'tv', 'workspace', 'hot tub', 'pet friendly', 'beach access', 'power backup'],
   states: INDIAN_STATES,
 };
 

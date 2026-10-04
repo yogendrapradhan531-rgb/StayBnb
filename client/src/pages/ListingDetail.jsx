@@ -20,7 +20,7 @@ const ListingMap = lazy(() => import('../components/ListingMap.jsx'));
 
 const AMENITY_ICONS = {
   wifi: '📶', kitchen: '🍳', washer: '🧺', 'air conditioning': '❄️', heating: '🔥', pool: '🏊',
-  'free parking': '🅿️', tv: '📺', workspace: '💻', 'hot tub': '🛁', 'pet friendly': '🐾', 'beach access': '🏖️',
+  'free parking': '🅿️', tv: '📺', workspace: '💻', 'hot tub': '🛁', 'pet friendly': '🐾', 'beach access': '🏖️',  'power backup': '🔋',
 };
 
 export default function ListingDetail() {

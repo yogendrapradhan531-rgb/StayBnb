@@ -13,4 +13,5 @@ export const AMENITIES = [
   'hot tub',
   'pet friendly',
   'beach access',
+  'power backup',
 ];
