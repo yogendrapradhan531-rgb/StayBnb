@@ -208,6 +208,17 @@ export const listingsData = [
     address: { street: 'Johari Bazaar', city: 'Jaipur', state: 'Rajasthan', pincode: '302003' },
     location: { type: 'Point', coordinates: [75.8267, 26.9239] },
   }),
+    listing({
+    title: 'Rainforest Homestay in Agumbe',
+    description:
+      'A quiet family homestay in the Western Ghats, close to Sunset Point and Barkana Falls. Wake up to mist, birdsong and filter coffee – perfect for monsoon treks.',
+    propertyType: 'house',
+    images: [IMG.house3, IMG.int2, IMG.kitchen1],
+    pricePerNight: 1800, cleaningFee: 200, maxGuests: 4, bedrooms: 2, beds: 2, bathrooms: 1,
+    amenities: ['wifi', 'kitchen', 'free parking', 'power backup'],
+    address: { street: 'Main Road, Agumbe', city: 'Agumbe', state: 'Karnataka', pincode: '577411' },
+    location: { type: 'Point', coordinates: [75.0937, 13.5027] },
+  }),
 ];
 
 /** Listings that demonstrate the approval workflow (owned by the unverified host). */
