@@ -3,12 +3,13 @@
  * The same wording is used on the client (client/src/utils/validation.js)
  * so users see one consistent voice whether a check runs in the browser or here.
  */
+
 import {
   required, minLength, maxLength, matches, oneOf, number, isoDate, url, custom,
 } from './validate.js';
-import { INDIAN_STATES, PIN_CODE_RE, PAN_RE, MOBILE_RE, normalizeMobile } from './india.js';
+import { INDIAN_STATES, PIN_CODE_RE, PAN_RE, MOBILE_RE, normalizeMobile, containsPhoneNumber } from './india.js';
 import { AMENITIES, PROPERTY_TYPES } from './listingOptions.js';
-
+const PHONE_IN_TEXT_MSG = 'Please remove the phone number – contact details aren’t allowed in listings, so every booking goes through Staybnb';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export const registerSchema = {
@@ -30,7 +31,7 @@ export const loginSchema = {
 
 export const listingSchema = {
   title: [required('Give your place a title'), minLength(10, 'Titles need at least 10 characters – describe what makes it special'), maxLength(100, 'Keep the title under 100 characters')],
-  description: [required('Add a description'), minLength(50, 'Write at least 50 characters so guests know what to expect'), maxLength(5000, 'Description is too long (max 5000 characters)')],
+  description: [required('Add a description'), minLength(50, 'Write at least 50 characters so guests know what to expect'), maxLength(5000, 'Description is too long (max 5000 characters)'), custom((v) => (containsPhoneNumber(v) ? PHONE_IN_TEXT_MSG : null))],
   propertyType: [required('Choose a property type'), oneOf(PROPERTY_TYPES, 'Choose a valid property type')],
   pricePerNight: [required('Set a nightly price'), number({ min: 300, max: 500000, integer: true }, {
     min: 'Nightly price must be at least ₹300',

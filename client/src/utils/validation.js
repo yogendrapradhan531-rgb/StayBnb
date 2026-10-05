@@ -3,7 +3,7 @@
  * word-for-word, so the user sees the same guidance whether a check runs in
  * the browser (instantly) or on the server (as the final authority).
  */
-import { INDIAN_STATES, MOBILE_RE, PAN_RE, PIN_CODE_RE, normalizeMobile } from './india.js';
+import { INDIAN_STATES, MOBILE_RE, PAN_RE, PIN_CODE_RE, normalizeMobile, containsPhoneNumber } from './india.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const blank = (v) => v === undefined || v === null || String(v).trim() === '';
@@ -47,7 +47,7 @@ export function validateListing(f, images) {
   const price = Number(f.pricePerNight);
   return collect({
     title: [() => blank(f.title) && 'Give your place a title', () => f.title.trim().length < 10 && 'Titles need at least 10 characters – describe what makes it special'],
-    description: [() => blank(f.description) && 'Add a description', () => f.description.trim().length < 50 && 'Write at least 50 characters so guests know what to expect'],
+    description: [() => blank(f.description) && 'Add a description', () => f.description.trim().length < 50 && 'Write at least 50 characters so guests know what to expect', () => containsPhoneNumber(f.description) && 'Please remove the phone number – contact details aren’t allowed in listings, so every booking goes through Staybnb'],
     pricePerNight: [
       () => blank(f.pricePerNight) && 'Set a nightly price',
       () => !Number.isInteger(price) && 'Use a whole rupee amount (no paise)',

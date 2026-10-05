@@ -37,3 +37,13 @@ export function maskPan(pan) {
 export function maskMobile(mobile) {
   return `XXXXXX${mobile.slice(-4)}`;
 }
+
+/**
+ * True if the text contains something that looks like a phone number:
+ * 10 or more digits in a row, even with spaces, dashes, dots, brackets or +91 between them.
+ * Short numbers like prices (₹2500), PIN codes (577411) or "2 bedrooms" are allowed.
+ */
+export function containsPhoneNumber(text = '') {
+  const candidates = String(text).match(/\+?\d[\d\s\-().]{8,}\d/g) || [];
+  return candidates.some((c) => c.replace(/\D/g, '').length >= 10);
+}

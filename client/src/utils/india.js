@@ -34,3 +34,13 @@ export const KARNATAKA_DESTINATIONS = [
 
 /** Geographic centre of Karnataka – default map view. */
 export const KARNATAKA_CENTER = [15.3173, 75.7139];
+
+/**
+ * True if the text contains something that looks like a phone number:
+ * 10 or more digits in a row, even with spaces, dashes, dots, brackets or +91 between them.
+ * Short numbers like prices (₹2500), PIN codes (577411) or "2 bedrooms" are allowed.
+ */
+export function containsPhoneNumber(text = '') {
+  const candidates = String(text).match(/\+?\d[\d\s\-().]{8,}\d/g) || [];
+  return candidates.some((c) => c.replace(/\D/g, '').length >= 10);
+}
