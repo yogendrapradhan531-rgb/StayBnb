@@ -21,6 +21,7 @@ const listingSchema = new mongoose.Schema(
     pricePerNight: { type: Number, required: [true, 'Price is required'], min: 1 },
     cleaningFee: { type: Number, default: 0, min: 0 },
     maxGuests: { type: Number, required: true, min: 1, max: 50 },
+    minNights: { type: Number, default: 1, min: 1, max: 30 },
     bedrooms: { type: Number, default: 1, min: 0 },
     beds: { type: Number, default: 1, min: 0 },
     bathrooms: { type: Number, default: 1, min: 0 },

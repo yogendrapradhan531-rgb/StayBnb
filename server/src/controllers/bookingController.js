@@ -43,7 +43,12 @@ async function writeBooking({ listingId, guestId, checkIn, checkOut, guests }, s
   }
   if (guests > listing.maxGuests) {
     throw ApiError.validation({ guests: `This place allows at most ${listing.maxGuests} guests` });
+    const minNights = listing.minNights || 1;
+  if (nightsBetween(checkIn, checkOut) < minNights) {
+    throw ApiError.validation({ checkOut: `This place needs a minimum stay of ${minNights} nights` });
   }
+  }
+
 
   const conflict = await findConflict(listing._id, checkIn, checkOut, { session });
   if (conflict) throw ApiError.conflict(conflict, { code: ERROR_CODES.DATES_UNAVAILABLE });

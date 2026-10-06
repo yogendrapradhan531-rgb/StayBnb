@@ -22,7 +22,7 @@ const SORTS = {
 function pickListingFields(body) {
   const allowed = [
     'title', 'description', 'propertyType', 'images', 'pricePerNight', 'cleaningFee',
-    'maxGuests', 'bedrooms', 'beds', 'bathrooms', 'amenities', 'address', 'isActive',
+    'maxGuests', 'minNights', 'bedrooms', 'beds', 'bathrooms', 'amenities', 'address', 'isActive',
   ];
   const data = {};
   for (const key of allowed) if (body[key] !== undefined) data[key] = body[key];

@@ -40,6 +40,7 @@ export const listingSchema = {
   })],
   cleaningFee: [number({ min: 0, max: 50000, integer: true }, { min: 'Cleaning fee can’t be negative', max: 'Cleaning fee can’t exceed ₹50,000', integer: 'Use a whole rupee amount' })],
   maxGuests: [required('How many guests can stay?'), number({ min: 1, max: 30, integer: true }, { min: 'At least 1 guest', max: 'Up to 30 guests' })],
+    minNights: [number({ min: 1, max: 30, integer: true }, { min: 'Minimum stay must be at least 1 night', max: 'Minimum stay can be at most 30 nights', integer: 'Use a whole number of nights' })],
   bedrooms: [number({ min: 0, max: 30, integer: true })],
   beds: [number({ min: 1, max: 50, integer: true }, { min: 'Add at least 1 bed' })],
   bathrooms: [number({ min: 0.5, max: 30 }, { min: 'Add at least one bathroom (0.5 for a shared one)' })],
