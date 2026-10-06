@@ -18,15 +18,15 @@ export default function Hero({ initial, onSearch }) {
       />
       <div className="hero-overlay" aria-hidden="true" />
       <div className="container hero-content">
-        <p className="hero-eyebrow">Homestays, estates & beach huts across Karnataka</p>
+        <p className="hero-eyebrow">Rainforests, coffee estates & old-Bengaluru homes</p>
         <h1 className="hero-title">
           From Coorg’s coffee estates
           <br />
           to Gokarna’s <span className="hero-accent">beaches</span>.
         </h1>
         <p className="hero-sub">
-          Book verified Indian homestays with transparent ₹ pricing – GST included, invoice in one click.
-        </p>
+  Wake up to mist in Agumbe or filter coffee in Malleshwaram – real homestays, fair ₹ prices and GST shown before you pay.
+</p>
 
         <SearchBar initial={initial} onSearch={onSearch} variant="hero" />
 
