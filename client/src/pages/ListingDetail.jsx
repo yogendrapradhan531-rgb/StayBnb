@@ -162,6 +162,7 @@ export default function ListingDetail() {
               <p className="muted">
                 {plural(listing.maxGuests, 'guest')} · {plural(listing.bedrooms, 'bedroom')} ·{' '}
                 {plural(listing.beds, 'bed')} · {plural(listing.bathrooms, 'bath')}
+                {listing.minNights > 1 && <> · {plural(listing.minNights, 'night')} minimum</>}
               </p>
               <div className="row gap wrap host-meta">
                 <VerifiedBadge status={listing.host?.hostVerification?.status} />

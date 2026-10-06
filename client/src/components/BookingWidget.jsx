@@ -114,6 +114,11 @@ export default function BookingWidget({ listing, initial = {} }) {
       setError('Select your check-in and check-out dates.');
       return;
     }
+           const minNights = listing.minNights || 1;
+       if (nights < minNights) {
+         setError(`This place needs a minimum stay of ${minNights} nights.`);
+         return;
+       }
     if (!user) {
       // Come back to this page with the selection intact after logging in
       const sp = new URLSearchParams({ checkIn: toISODate(startDate), checkOut: toISODate(endDate), guests: String(guests) });
@@ -206,7 +211,7 @@ export default function BookingWidget({ listing, initial = {} }) {
           </select>
         </label>
       </div>
-
+               {listing.minNights > 1 && <p className="muted small">Minimum stay: {plural(listing.minNights, 'night')}</p>}
       {error && <div className="alert alert-error" role="alert">{error}</div>}
 
       <button type="button" className="btn btn-primary btn-block btn-lg" onClick={reserve} disabled={submitting}>

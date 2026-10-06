@@ -56,6 +56,7 @@ export function validateListing(f, images) {
     ],
     cleaningFee: [() => Number(f.cleaningFee) < 0 && 'Cleaning fee can’t be negative'],
     maxGuests: [() => !(Number(f.maxGuests) >= 1) && 'At least 1 guest', () => Number(f.maxGuests) > 30 && 'Up to 30 guests'],
+    minNights: [() => !(Number.isInteger(Number(f.minNights)) && Number(f.minNights) >= 1) && 'Minimum stay must be at least 1 night', () => Number(f.minNights) > 30 && 'Minimum stay can be at most 30 nights'],
     beds: [() => !(Number(f.beds) >= 1) && 'Add at least 1 bed'],
     bathrooms: [() => !(Number(f.bathrooms) >= 0.5) && 'Add at least one bathroom (0.5 for a shared one)'],
     images: [
