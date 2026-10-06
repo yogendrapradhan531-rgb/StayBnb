@@ -30,6 +30,7 @@ export const KARNATAKA_DESTINATIONS = [
   ['Bengaluru', '🌆'],
   ['Udupi', '🌊'],
   ['Kabini', '🐘'],
+  ['Agumbe', '🌧️'],
 ];
 
 /** Geographic centre of Karnataka – default map view. */
